@@ -15,7 +15,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: anpleenko/<repo> #! NEED CHANGE
+  IMAGE_NAME: anpleenko/nginx
 
 jobs:
   build:
@@ -66,6 +66,6 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          # platforms: linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7
+          platforms: linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7
           cache-from: type=gha
           cache-to: type=gha,mode=max
